@@ -72,23 +72,37 @@ document.addEventListener('DOMContentLoaded', () => {
   const CACHE_TTL = 1000 * 60 * 30; // 30 minutes
   const DISPLAY_TZ = 'America/Los_Angeles';
 
-  function formatNumericDate(iso) {
+  function ordinalSuffix(n) {
+    const mod100 = n % 100;
+    if (mod100 >= 11 && mod100 <= 13) return 'th';
+    const mod10 = n % 10;
+    if (mod10 === 1) return 'st';
+    if (mod10 === 2) return 'nd';
+    if (mod10 === 3) return 'rd';
+    return 'th';
+  }
+
+  function formatDateHTML(iso) {
     const d = new Date(iso);
     if (isNaN(d.getTime())) return null;
-    const parts = new Intl.DateTimeFormat('en-CA', {
+    const parts = new Intl.DateTimeFormat('en-US', {
       timeZone: DISPLAY_TZ,
       year: 'numeric',
-      month: '2-digit',
-      day: '2-digit'
+      month: 'long',
+      day: 'numeric'
     }).formatToParts(d);
     const get = (t) => (parts.find(p => p.type === t) || {}).value || '';
-    return `${get('year')}-${get('month')}-${get('day')}`;
+    const dayNum = parseInt(get('day'), 10);
+    const month = get('month');
+    const year = get('year');
+    if (isNaN(dayNum) || !month || !year) return null;
+    return `<span class="mono">${dayNum}</span>${ordinalSuffix(dayNum)} ${month} - <span class="mono">${year}</span>`;
   }
 
   function render(iso) {
-    const formatted = formatNumericDate(iso);
+    const formatted = formatDateHTML(iso);
     if (!formatted) return;
-    dateEl.textContent = formatted;
+    dateEl.innerHTML = formatted;
   }
 
   try {
