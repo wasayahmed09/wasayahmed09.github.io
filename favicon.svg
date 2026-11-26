@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <style>
+    .bg { fill: #0A0A0A; }
+    .fg { fill: #F8F8F8; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #F8F8F8; }
+      .fg { fill: #0A0A0A; }
+    }
+  </style>
+  <rect class="bg" width="64" height="64" rx="16"/>
+  <path class="fg" d="M18.69 44.75H22.35L28.77 27.18L35.15 44.75H38.86L47.8 20.25H42.83L37.01 37.82L30.63 20.25H26.87L20.59 37.82L14.72 20.25H9.8Z"/>
+  <circle class="fg" cx="51.8" cy="41.8" r="3.2"/>
+</svg>
