@@ -1162,4 +1162,36 @@ nav {
 @media (max-width: 520px) {
   .trip-cards, .video-grid { grid-template-columns: 1fr; }
   .photo-grid { columns: 1; }
+  .photo-grid figcaption,
+  .travel-video figcaption { font-size: 13px; }
+  .trip-card-meta { font-size: 13px; }
+  .trip-story { font-size: 16px; }
+}
+
+/* Keep portrait clips from filling the whole phone screen */
+.travel-video video {
+  max-height: min(80vh, 560px);
+  object-fit: contain;
+}
+
+/* Bigger tap targets on small screens */
+.subpage-back {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 8px 4px 8px 0;
+}
+
+@media (max-width: 600px) {
+  .nav-links {
+    flex-wrap: wrap;
+    row-gap: 4px;
+    column-gap: 16px;
+  }
+  .nav-links a {
+    padding: 8px 0;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
 }
