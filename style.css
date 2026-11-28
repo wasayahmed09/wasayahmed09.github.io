@@ -1126,3 +1126,72 @@ nav {
   .hero h1 { font-size: 25px; }
   main { padding: 0 16px; }
 }
+
+/* --- Travel --- */
+.draft-note {
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  background: var(--bg-subtle);
+  border: 1px dashed var(--border-strong);
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+.draft-note strong { color: var(--text); font-weight: 500; }
+.trip-story { font-size: 15.5px; color: var(--text-secondary); line-height: 1.72; margin-bottom: 10px; }
+.trip-how { font-size: 13.5px; color: var(--text-tertiary); line-height: 1.65; margin-bottom: 28px; }
+.trip-how a { color: var(--text); border-bottom: 1px solid var(--border); }
+.trip-how a:hover { border-bottom-color: var(--text); }
+.trip-h2 { font-family: var(--font-brand); font-weight: 500; font-size: 20px; letter-spacing: -0.03em; margin: 40px 0 14px; }
+.trip-h2 a { color: var(--text); border-bottom: 1px solid var(--border); }
+.trip-h2 a:hover { border-bottom-color: var(--text); }
+.trip-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px 18px; }
+.trip-card { display: flex; flex-direction: column; gap: 4px; color: var(--text); }
+.trip-card img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 8px; background: var(--bg-subtle); margin-bottom: 6px; transition: opacity var(--transition); }
+.trip-card:hover img { opacity: 0.88; }
+.trip-card-title { font-family: var(--font-brand); font-weight: 500; font-size: 17px; letter-spacing: -0.025em; }
+.trip-card-meta { font-size: 12.5px; color: var(--text-tertiary); line-height: 1.5; }
+.photo-grid { columns: 2; column-gap: 14px; }
+.photo-grid figure { break-inside: avoid; margin: 0 0 14px; }
+.photo-grid img, .travel-video video { display: block; width: 100%; height: auto; border-radius: 6px; background: var(--bg-subtle); }
+.photo-grid figcaption, .travel-video figcaption { font-size: 12px; color: var(--text-tertiary); margin-top: 5px; line-height: 1.5; }
+.video-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px 14px; align-items: start; }
+.travel-video { margin: 0; }
+@media (max-width: 520px) {
+  .trip-cards, .video-grid { grid-template-columns: 1fr; }
+  .photo-grid { columns: 1; }
+  .photo-grid figcaption,
+  .travel-video figcaption { font-size: 13px; }
+  .trip-card-meta { font-size: 13px; }
+  .trip-story { font-size: 16px; }
+}
+
+/* Keep portrait clips from filling the whole phone screen */
+.travel-video video {
+  max-height: min(80vh, 560px);
+  object-fit: contain;
+}
+
+/* Bigger tap targets on small screens */
+.subpage-back {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 8px 4px 8px 0;
+}
+
+@media (max-width: 600px) {
+  .nav-links {
+    flex-wrap: wrap;
+    row-gap: 4px;
+    column-gap: 16px;
+  }
+  .nav-links a {
+    padding: 8px 0;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+}
